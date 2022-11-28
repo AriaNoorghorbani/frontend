@@ -4,15 +4,13 @@
     <div class="sidebar has-background-white">
       <h1 class="title has-text-primary">List</h1>
 
-      <div class="list-menu">
-        <a class="list-menu-item is-active">
-          List #1
-        </a>
-        <a class="list-menu-item">
-          List #1
+      <div class="list-menu" *ngFor="let list of lists" [routerLink]="['/lists', list._id]">
+        <a class="list-menu-item" routerLinkActive="is-active">
+          {{list.title}}
         </a>
       </div>
-      <button class="button is-primary">+ New List</button>
+
+      <button class="button is-primary" routerLink="/new-list">+ New List</button>
     </div>
 
     <div class="task-list-container has-background-light">
@@ -20,19 +18,9 @@
       <h1 class="title has-text-primary">
         Tasks
       </h1>
-      <div class="task">
+      <div class="task" *ngFor="let task of tasks">
         <p>
-          this is something to i want do
-        </p>
-      </div>
-      <div class="task">
-        <p>
-          this is something to i want do
-        </p>
-      </div>
-      <div class="task complete">
-        <p>
-          this is something to i want do
+          {{task.title}}
         </p>
       </div>
 
