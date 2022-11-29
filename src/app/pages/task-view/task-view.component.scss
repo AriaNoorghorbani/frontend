@@ -89,13 +89,21 @@
 
 .circle-add-button {
   position: absolute;
-  height: 50px;
-  width: 50px;
-  bottom: 35px;
-  right: 35px;
-  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  bottom: 25px;
+  right: 25px;
+  border-radius: 40%;
 }
 
 .plus {
   min-width: 20px;
+}
+
+.new-list {
+  font-size: 20px;
+  margin-top: 340px;
+  min-height: 50px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
