@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Task } from 'src/app/modals/task.model';
 import { TaskService } from 'src/app/task.service';
 
 @Component({
@@ -27,8 +28,10 @@ export class TaskViewComponent implements OnInit {
       this.lists = lists;
     });
   }
-}
 
-// this.taskService.getLists().subscribe((lists) => {
-//   this.lists = lists;
-// })
+  onTaskClick(task: Task) {
+    this.taskService.complete(task).subscribe(() => {
+      task.completed = !task.completed;
+    });
+  }
+}

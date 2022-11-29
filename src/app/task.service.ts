@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Task } from './modals/task.model';
 import { WebRequestService } from './webRequest.service';
 
 @Injectable({
@@ -21,5 +22,14 @@ export class TaskService {
 
   createNewTask(title: string, listId: string) {
     return this.webRequestService.post(`lists/${listId}/tasks`, { title });
+  }
+
+  complete(task: Task) {
+    return this.webRequestService.patch(
+      `lists/${task._listId}/tasks/${task._id}`,
+      {
+        completed: !task.completed,
+      }
+    );
   }
 }
